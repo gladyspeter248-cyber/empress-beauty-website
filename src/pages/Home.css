@@ -1,0 +1,989 @@
+/* =========================================================
+   EMPRESS BEAUTY — HOME PAGE
+========================================================= */
+
+.home-page {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.home-hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.home-hero-image {
+  position: absolute;
+  inset: 0;
+}
+
+.home-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15, 13, 12, 0.72) 0%,
+      rgba(15, 13, 12, 0.40) 48%,
+      rgba(15, 13, 12, 0.18) 100%
+    );
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+
+.home-hero-copy {
+  max-width: 680px;
+}
+
+.home-hero-copy .section-label {
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 28px;
+}
+
+.home-hero h1 {
+  font-size: clamp(4rem, 8vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+  margin: 0 0 38px;
+}
+
+.home-hero h1 em {
+  font-weight: 400;
+}
+
+.home-hero-copy > p {
+  max-width: 540px;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 36px;
+}
+
+.home-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.home-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: gap 0.3s ease;
+}
+
+.home-text-link:hover {
+  gap: 18px;
+}
+
+.home-text-link span {
+  font-size: 1rem;
+}
+
+.home-hero-side {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transform: rotate(-90deg);
+  transform-origin: right bottom;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.home-hero-side span {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+}
+
+.home-hero-side div {
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.home-hero-side p {
+  margin: 0;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.home-scroll {
+  position: absolute;
+  z-index: 3;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-scroll span {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.home-scroll div {
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.home-intro {
+  padding: 150px 0;
+  background: #f8f4ed;
+}
+
+.home-intro-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1fr;
+  gap: 110px;
+  align-items: center;
+}
+
+.home-intro-image-wrap {
+  position: relative;
+  padding-bottom: 35px;
+}
+
+.home-intro-image {
+  height: 690px;
+  overflow: hidden;
+}
+
+.home-intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-image-caption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #171615;
+  color: #fff;
+  padding: 17px 24px;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-intro-content {
+  max-width: 570px;
+}
+
+.home-intro-content h2 {
+  font-size: clamp(3rem, 5vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  margin: 24px 0 38px;
+}
+
+.home-intro-content h2 em {
+  font-weight: 400;
+}
+
+.home-intro-content p {
+  color: #6e655d;
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.home-intro-content .home-lead {
+  font-size: 1.08rem;
+  color: #4e4842;
+}
+
+.home-outline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 22px;
+  color: #171615;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid #171615;
+  padding-bottom: 9px;
+  transition: gap 0.3s ease;
+}
+
+.home-outline-link:hover {
+  gap: 20px;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.home-services {
+  padding: 150px 0;
+  background: #fffdf8;
+}
+
+.home-section-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.65fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 75px;
+}
+
+.home-section-heading h2 {
+  font-size: clamp(3.2rem, 5vw, 5.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  margin: 20px 0 0;
+}
+
+.home-section-heading h2 em {
+  font-weight: 400;
+}
+
+.home-heading-copy p {
+  color: #70675f;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.home-text-link.dark {
+  color: #171615;
+}
+
+.home-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px 35px;
+}
+
+.home-service-card {
+  display: block;
+  color: #171615;
+}
+
+.home-service-image {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.home-service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.home-service-card:hover .home-service-image img {
+  transform: scale(1.04);
+}
+
+.home-service-number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+}
+
+.home-service-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.home-service-card:hover .home-service-arrow {
+  transform: translate(4px, -4px);
+}
+
+.home-service-content h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.home-service-content p {
+  color: #746c65;
+  line-height: 1.75;
+  max-width: 500px;
+}
+
+.home-card-link {
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.home-card-link span {
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   EXPERIENCE BANNER
+========================================================= */
+
+.home-experience {
+  position: relative;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.home-experience-image {
+  position: absolute;
+  inset: 0;
+}
+
+.home-experience-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.home-experience-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 17, 15, 0.78),
+      rgba(20, 17, 15, 0.25)
+    );
+}
+
+.home-experience-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.home-experience-content .section-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.home-experience-content h2 {
+  font-size: clamp(3.5rem, 6vw, 6.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  margin: 25px 0 35px;
+}
+
+.home-experience-content h2 em {
+  font-weight: 400;
+}
+
+.home-experience-content p {
+  max-width: 500px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.86);
+  margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   PHILOSOPHY
+========================================================= */
+
+.home-philosophy {
+  padding: 145px 0;
+  background: #171615;
+  color: #fff;
+}
+
+.home-philosophy-top {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 90px;
+}
+
+.home-philosophy-top .section-label {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.home-philosophy-top h2 {
+  font-size: clamp(3rem, 5vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  margin-top: 25px;
+}
+
+.home-philosophy-top h2 em {
+  font-weight: 400;
+}
+
+.home-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.home-philosophy-item {
+  padding: 45px 35px 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.home-philosophy-item:last-child {
+  border-right: 0;
+}
+
+.home-philosophy-item span {
+  font-family: "Playfair Display", serif;
+  color: #c9a86a;
+}
+
+.home-philosophy-item h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 25px 0 15px;
+}
+
+.home-philosophy-item p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  max-width: 330px;
+}
+
+
+/* =========================================================
+   LOOKBOOK
+========================================================= */
+
+.home-lookbook {
+  padding: 150px 0;
+  background: #f8f4ed;
+}
+
+.lookbook-heading {
+  margin-bottom: 80px;
+}
+
+.home-lookbook-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.home-lookbook-item {
+  color: #171615;
+}
+
+.lookbook-1 {
+  grid-row: span 2;
+}
+
+.lookbook-2 {
+  margin-top: 100px;
+}
+
+.home-lookbook-image {
+  overflow: hidden;
+  background: #e8dfd5;
+}
+
+.lookbook-1 .home-lookbook-image {
+  height: 760px;
+}
+
+.lookbook-2 .home-lookbook-image {
+  height: 470px;
+}
+
+.lookbook-3 .home-lookbook-image,
+.lookbook-4 .home-lookbook-image {
+  height: 470px;
+}
+
+.home-lookbook-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.home-lookbook-item:hover img {
+  transform: scale(1.04);
+}
+
+.home-lookbook-meta {
+  padding: 18px 0 35px;
+}
+
+.home-lookbook-meta span {
+  display: block;
+  color: #8a7358;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.home-lookbook-meta h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   BEAUTY MOMENT
+========================================================= */
+
+.home-moment {
+  padding: 150px 0;
+  background: #fffdf8;
+}
+
+.home-moment-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 110px;
+  align-items: center;
+}
+
+.home-moment-content {
+  max-width: 500px;
+}
+
+.home-moment-content h2 {
+  font-size: clamp(3.2rem, 5vw, 5.3rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  margin: 25px 0 35px;
+}
+
+.home-moment-content h2 em {
+  font-weight: 400;
+}
+
+.home-moment-content p {
+  color: #70675f;
+  line-height: 1.85;
+}
+
+.home-moment-image {
+  height: 680px;
+  overflow: hidden;
+}
+
+.home-moment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.home-location {
+  padding: 150px 0;
+  background: #f8f4ed;
+}
+
+.home-location-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.home-location-image {
+  height: 650px;
+  overflow: hidden;
+}
+
+.home-location-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-location-content {
+  max-width: 530px;
+}
+
+.home-location-content h2 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  margin: 25px 0 30px;
+}
+
+.home-location-content h2 em {
+  font-weight: 400;
+}
+
+.home-location-content > p {
+  color: #70675f;
+  line-height: 1.8;
+  margin-bottom: 45px;
+}
+
+.home-contact-details {
+  border-top: 1px solid #ded4c8;
+}
+
+.home-contact-details > div {
+  padding: 20px 0;
+  border-bottom: 1px solid #ded4c8;
+}
+
+.home-contact-details span {
+  display: block;
+  color: #8a7358;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.home-contact-details p {
+  margin: 0;
+  color: #4d4741;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.home-final-cta {
+  padding: 140px 0;
+  background: #171615;
+  color: #fff;
+}
+
+.home-final-inner {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.home-final-number {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: #c9a86a;
+  padding-top: 12px;
+}
+
+.home-final-inner h2 {
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+  margin: 25px 0 30px;
+}
+
+.home-final-inner h2 em {
+  font-weight: 400;
+}
+
+.home-final-inner p {
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .home-hero {
+    min-height: 760px;
+  }
+
+  .home-hero-content {
+    padding-top: 80px;
+    padding-bottom: 90px;
+  }
+
+  .home-hero-side {
+    display: none;
+  }
+
+  .home-intro-grid,
+  .home-moment-grid,
+  .home-location-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .home-intro-image {
+    height: 600px;
+  }
+
+  .home-section-heading {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .home-service-grid {
+    gap: 50px 25px;
+  }
+
+  .home-service-image {
+    height: 450px;
+  }
+
+  .home-philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-philosophy-item {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .home-philosophy-item:last-child {
+    border-bottom: 0;
+  }
+
+  .home-lookbook-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lookbook-1 {
+    grid-row: auto;
+  }
+
+  .lookbook-2 {
+    margin-top: 0;
+  }
+
+  .lookbook-1 .home-lookbook-image,
+  .lookbook-2 .home-lookbook-image,
+  .lookbook-3 .home-lookbook-image,
+  .lookbook-4 .home-lookbook-image {
+    height: 600px;
+  }
+
+  .home-moment-image,
+  .home-location-image {
+    height: 600px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .home-hero {
+    min-height: 700px;
+  }
+
+  .home-hero-image img {
+    object-position: 60% center;
+  }
+
+  .home-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(15, 13, 12, 0.72),
+        rgba(15, 13, 12, 0.34)
+      );
+  }
+
+  .home-hero-content {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(3.6rem, 18vw, 5.5rem);
+    margin-bottom: 28px;
+  }
+
+  .home-hero-copy > p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .home-hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .home-scroll {
+    display: none;
+  }
+
+  .home-intro,
+  .home-services,
+  .home-lookbook,
+  .home-moment,
+  .home-location {
+    padding: 90px 0;
+  }
+
+  .home-intro-grid,
+  .home-moment-grid,
+  .home-location-grid {
+    gap: 45px;
+  }
+
+  .home-intro-image {
+    height: 500px;
+  }
+
+  .home-intro-content h2,
+  .home-section-heading h2,
+  .home-moment-content h2,
+  .home-location-content h2 {
+    font-size: 3.1rem;
+  }
+
+  .home-service-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .home-service-image {
+    height: 500px;
+  }
+
+  .home-service-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .home-experience {
+    min-height: 650px;
+  }
+
+  .home-experience-content h2 {
+    font-size: 3.6rem;
+  }
+
+  .home-philosophy {
+    padding: 90px 0;
+  }
+
+  .home-philosophy-top {
+    margin-bottom: 55px;
+  }
+
+  .home-philosophy-top h2 {
+    font-size: 3.1rem;
+  }
+
+  .home-philosophy-item {
+    padding: 35px 0;
+  }
+
+  .lookbook-1 .home-lookbook-image,
+  .lookbook-2 .home-lookbook-image,
+  .lookbook-3 .home-lookbook-image,
+  .lookbook-4 .home-lookbook-image {
+    height: 500px;
+  }
+
+  .home-moment-image,
+  .home-location-image {
+    height: 500px;
+  }
+
+  .home-final-cta {
+    padding: 90px 0;
+  }
+
+  .home-final-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .home-final-inner h2 {
+    font-size: 3.7rem;
+  }
+}

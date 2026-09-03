@@ -1,0 +1,758 @@
+/* =========================================
+   EMPRESS BEAUTY
+   TEAM PAGE
+========================================= */
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.team-hero {
+  position: relative;
+
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      110deg,
+      var(--color-charcoal) 0%,
+      #25221f 60%,
+      #342c24 100%
+    );
+
+  color: var(--color-cream);
+}
+
+.team-hero-content {
+  position: relative;
+  z-index: 2;
+
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.team-hero .section-label {
+  margin-bottom: 1.5rem;
+}
+
+.team-hero h1 {
+  max-width: 900px;
+
+  margin-bottom: 2rem;
+
+  font-size: clamp(4rem, 8vw, 7rem);
+
+  font-weight: 400;
+
+  letter-spacing: -0.03em;
+}
+
+.team-hero h1 em {
+  color: var(--color-gold);
+
+  font-style: italic;
+}
+
+.team-hero p {
+  max-width: 580px;
+
+  color: rgba(255, 253, 248, 0.68);
+
+  font-size: 1rem;
+
+  line-height: 1.9;
+}
+
+.team-hero-number {
+  position: absolute;
+
+  right: -2rem;
+  bottom: -4rem;
+
+  color: rgba(255, 253, 248, 0.035);
+
+  font-family: var(--font-heading);
+
+  font-size: 28rem;
+
+  line-height: 0.8;
+
+  user-select: none;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.team-intro {
+  padding: 7rem 0;
+
+  background: var(--color-cream);
+}
+
+.team-intro-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7rem;
+
+  align-items: start;
+}
+
+.team-intro h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+  font-weight: 400;
+}
+
+.team-intro h2 em {
+  color: var(--color-gold);
+
+  font-style: italic;
+}
+
+.team-intro-grid > div:last-child {
+  padding-top: 2rem;
+}
+
+.team-intro-grid p {
+  max-width: 560px;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--color-taupe);
+
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   TEAM MEMBERS
+========================================= */
+
+.team-members {
+  padding: 8rem 0;
+
+  background: var(--color-ivory);
+}
+
+.team-section-heading {
+  margin-bottom: 4rem;
+}
+
+.team-section-heading h2 {
+  font-size: clamp(3rem, 6vw, 5rem);
+
+  font-weight: 400;
+}
+
+.team-section-heading h2 em {
+  color: var(--color-gold);
+
+  font-style: italic;
+}
+
+
+/* =========================================
+   TEAM GRID
+========================================= */
+
+.team-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 5rem 1.5rem;
+}
+
+
+/* =========================================
+   TEAM CARD
+========================================= */
+
+.team-card {
+  overflow: hidden;
+}
+
+.team-image-wrapper {
+  position: relative;
+
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.team-card:hover .team-image {
+  transform: scale(1.05);
+
+  filter: brightness(0.78);
+}
+
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
+
+.team-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.8rem;
+
+  background: rgba(23, 22, 21, 0.15);
+
+  color: var(--color-cream);
+
+  opacity: 0;
+
+  transition: opacity var(--transition);
+}
+
+.team-card:hover .team-image-overlay {
+  opacity: 1;
+}
+
+.team-image-overlay > span:first-child {
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+.team-image-arrow {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(255, 253, 248, 0.7);
+
+  border-radius: 50%;
+
+  font-size: 1rem;
+}
+
+
+/* =========================================
+   TEAM CONTENT
+========================================= */
+
+.team-card-content {
+  padding-top: 1.5rem;
+}
+
+.team-card-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.team-member-number {
+  display: block;
+
+  margin-bottom: 0.4rem;
+
+  color: var(--color-gold);
+
+  font-size: 0.6rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+}
+
+.team-card h3 {
+  font-size: 1.8rem;
+
+  font-weight: 500;
+}
+
+.team-specialty {
+  flex-shrink: 0;
+
+  padding: 0.45rem 0.7rem;
+
+  border: 1px solid var(--color-border);
+
+  color: var(--color-taupe);
+
+  font-size: 0.58rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.team-role {
+  margin-top: 0.65rem;
+
+  color: var(--color-gold);
+
+  font-size: 0.72rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+}
+
+.team-description {
+  max-width: 500px;
+
+  margin-top: 0.9rem;
+
+  color: var(--color-taupe);
+
+  font-size: 0.82rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   SPECIALTIES
+========================================= */
+
+.team-specialties {
+  padding: 8rem 0;
+
+  background: var(--color-cream);
+}
+
+.team-specialties-heading {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7rem;
+
+  margin-bottom: 5rem;
+}
+
+.team-specialties-heading h2 {
+  font-size: clamp(3rem, 6vw, 5rem);
+
+  font-weight: 400;
+}
+
+.team-specialties-heading h2 em {
+  color: var(--color-gold);
+
+  font-style: italic;
+}
+
+.team-specialties-heading > p {
+  max-width: 560px;
+
+  padding-top: 2rem;
+
+  color: var(--color-taupe);
+
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   SPECIALTY CARDS
+========================================= */
+
+.specialties-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid var(--color-border);
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.specialty-card {
+  position: relative;
+
+  min-height: 280px;
+
+  padding: 2rem;
+
+  border-right: 1px solid var(--color-border);
+
+  transition:
+    background-color var(--transition),
+    transform var(--transition);
+}
+
+.specialty-card:last-child {
+  border-right: none;
+}
+
+.specialty-card:hover {
+  background: var(--color-ivory);
+
+  transform: translateY(-5px);
+}
+
+.specialty-number {
+  display: block;
+
+  margin-bottom: 4rem;
+
+  color: var(--color-gold);
+
+  font-family: var(--font-heading);
+
+  font-size: 1.3rem;
+}
+
+.specialty-card h3 {
+  margin-bottom: 0.9rem;
+
+  font-size: 1.7rem;
+
+  font-weight: 500;
+}
+
+.specialty-card p {
+  color: var(--color-taupe);
+
+  font-size: 0.78rem;
+
+  line-height: 1.8;
+}
+
+.specialty-line {
+  position: absolute;
+
+  left: 2rem;
+  bottom: 1.5rem;
+
+  width: 35px;
+  height: 1px;
+
+  background: var(--color-gold);
+
+  transition: width var(--transition);
+}
+
+.specialty-card:hover .specialty-line {
+  width: 70px;
+}
+
+
+/* =========================================
+   PHILOSOPHY
+========================================= */
+
+.team-philosophy {
+  padding: 8rem 0;
+
+  background: var(--color-ivory);
+}
+
+.team-philosophy-inner {
+  display: grid;
+
+  grid-template-columns: 120px 1fr;
+
+  gap: 3rem;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+.team-philosophy-number {
+  color: var(--color-gold);
+
+  font-family: var(--font-heading);
+
+  font-size: 2rem;
+}
+
+.team-philosophy-content {
+  max-width: 750px;
+}
+
+.team-philosophy-content h2 {
+  margin-bottom: 2rem;
+
+  font-size: clamp(3rem, 6vw, 5rem);
+
+  font-weight: 400;
+}
+
+.team-philosophy-content h2 em {
+  color: var(--color-gold);
+
+  font-style: italic;
+}
+
+.team-philosophy-content p {
+  max-width: 650px;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--color-taupe);
+
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.team-cta {
+  padding: 8rem 0;
+
+  background: var(--color-charcoal);
+
+  color: var(--color-cream);
+}
+
+.team-cta-inner {
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.team-cta-inner h2 {
+  margin-bottom: 1.5rem;
+
+  font-size: clamp(3rem, 6vw, 5rem);
+
+  font-weight: 400;
+}
+
+.team-cta-inner h2 em {
+  color: var(--color-gold);
+
+  font-style: italic;
+}
+
+.team-cta-inner p {
+  margin-bottom: 2.5rem;
+
+  color: rgba(255, 253, 248, 0.6);
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .team-specialties-heading {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 3rem;
+  }
+
+  .specialties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .specialty-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .specialty-card:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .team-hero {
+    min-height: 560px;
+  }
+
+  .team-hero-content {
+    padding-top: 6rem;
+
+    padding-bottom: 6rem;
+  }
+
+  .team-hero-number {
+    right: -1rem;
+
+    bottom: -2rem;
+
+    font-size: 20rem;
+  }
+
+  .team-intro-grid {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .team-intro-grid > div:last-child {
+    padding-top: 0;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+
+    gap: 4rem;
+  }
+
+  .team-specialties-heading {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .team-specialties-heading > p {
+    padding-top: 0;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .team-hero {
+    min-height: 520px;
+  }
+
+  .team-hero h1 {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+  }
+
+  .team-hero p {
+    font-size: 0.9rem;
+  }
+
+  .team-hero-number {
+    font-size: 14rem;
+  }
+
+  .team-intro {
+    padding: 5rem 0;
+  }
+
+  .team-members {
+    padding: 5rem 0;
+  }
+
+  .team-section-heading {
+    margin-bottom: 3rem;
+  }
+
+  .team-grid {
+    gap: 3.5rem;
+  }
+
+  .team-card-heading {
+    align-items: flex-start;
+  }
+
+  .team-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .team-specialty {
+    font-size: 0.52rem;
+
+    padding: 0.35rem 0.5rem;
+  }
+
+  .team-specialties {
+    padding: 5rem 0;
+  }
+
+  .specialties-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specialty-card {
+    min-height: 230px;
+
+    border-right: none;
+
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .specialty-card:last-child {
+    border-bottom: none;
+  }
+
+  .specialty-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .specialty-card:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .team-philosophy {
+    padding: 5rem 0;
+  }
+
+  .team-philosophy-inner {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .team-philosophy-number {
+    font-size: 1.5rem;
+  }
+
+  .team-cta {
+    padding: 6rem 0;
+  }
+
+}

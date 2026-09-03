@@ -1,0 +1,288 @@
+/* =========================================
+   EMPRESS BEAUTY NAVBAR
+========================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(248, 244, 237, 0.95);
+  border-bottom: 1px solid var(--color-border);
+
+  backdrop-filter: blur(12px);
+}
+
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar-container {
+  width: min(100% - 2rem, var(--container-width));
+  min-height: 82px;
+
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1;
+
+  flex-shrink: 0;
+}
+
+.logo-main {
+  font-family: var(--font-heading);
+
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.logo-sub {
+  margin-top: 0.35rem;
+
+  font-family: var(--font-body);
+
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+
+  color: var(--color-gold);
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 1.5rem;
+
+  margin-left: auto;
+}
+
+.desktop-nav a {
+  position: relative;
+
+  padding: 0.5rem 0;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition: color var(--transition);
+}
+
+.desktop-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--color-gold);
+
+  transition: width var(--transition);
+}
+
+.desktop-nav a:hover {
+  color: var(--color-gold);
+}
+
+.desktop-nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   BOOK NOW BUTTON
+========================================= */
+
+.navbar-book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+
+  padding: 0.75rem 1.25rem;
+
+  background: var(--color-charcoal);
+  color: var(--color-cream);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  border: 1px solid var(--color-charcoal);
+  border-radius: var(--radius-sm);
+
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.navbar-book:hover {
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.menu-toggle {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+
+  width: 24px;
+  height: 2px;
+
+  background: var(--color-charcoal);
+
+  transition:
+    transform var(--transition),
+    opacity var(--transition);
+}
+
+/* Animated X */
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+
+.mobile-nav {
+  display: none;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .desktop-nav,
+  .navbar-book {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar-container {
+    min-height: 72px;
+  }
+
+  .mobile-nav {
+    display: flex;
+
+    flex-direction: column;
+
+    max-height: 0;
+    overflow: hidden;
+
+    background: var(--color-cream);
+
+    border-top: 1px solid transparent;
+
+    transition:
+      max-height 0.4s ease,
+      border-color 0.4s ease;
+  }
+
+  .mobile-nav.open {
+    max-height: 600px;
+
+    border-top-color: var(--color-border);
+  }
+
+  .mobile-nav a {
+    padding: 1rem 1.5rem;
+
+    border-bottom: 1px solid var(--color-border);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+  }
+
+  .mobile-nav a:hover {
+    background: var(--color-ivory);
+    color: var(--color-gold);
+  }
+
+  .mobile-nav .mobile-book {
+    margin: 1rem 1.5rem 1.5rem;
+
+    border: none;
+
+    background: var(--color-charcoal);
+    color: var(--color-cream);
+
+    text-align: center;
+  }
+
+  .mobile-nav .mobile-book:hover {
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+  }
+}

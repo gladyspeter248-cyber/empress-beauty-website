@@ -1,0 +1,436 @@
+/* =========================================
+   EMPRESS BEAUTY — GLOBAL FOOTER
+========================================= */
+
+.site-footer {
+  background: var(--color-charcoal);
+  color: var(--color-cream);
+}
+
+/* =========================================
+   FOOTER MAIN
+========================================= */
+
+.footer-main {
+  padding: 5rem 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.75fr 0.75fr 1.1fr;
+  gap: 4rem;
+}
+
+/* =========================================
+   FOOTER BRAND
+========================================= */
+
+.footer-brand {
+  max-width: 380px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+  margin-bottom: 1.75rem;
+}
+
+.footer-logo-main {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  letter-spacing: 0.18em;
+}
+
+.footer-logo-sub {
+  margin-top: 0.35rem;
+
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.48em;
+  text-align: center;
+
+  color: var(--color-gold);
+}
+
+.footer-brand-description {
+  max-width: 340px;
+  margin-bottom: 2rem;
+
+  color: rgba(255, 253, 248, 0.62);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-book-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  padding-bottom: 0.5rem;
+
+  border-bottom: 1px solid var(--color-gold);
+
+  color: var(--color-cream);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.footer-book-link span {
+  font-size: 1rem;
+  transition: transform var(--transition);
+}
+
+.footer-book-link:hover {
+  color: var(--color-gold);
+}
+
+.footer-book-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* =========================================
+   FOOTER COLUMNS
+========================================= */
+
+.footer-column-title {
+  display: block;
+  margin-bottom: 1.5rem;
+
+  color: var(--color-gold);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.footer-links a {
+  position: relative;
+
+  color: rgba(255, 253, 248, 0.72);
+
+  font-size: 0.85rem;
+
+  transition: color var(--transition);
+}
+
+.footer-links a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--color-gold);
+
+  transition: width var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--color-cream);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   FOOTER CONTACT
+========================================= */
+
+.footer-contact-block {
+  margin-bottom: 1.35rem;
+}
+
+.footer-contact-label {
+  display: block;
+  margin-bottom: 0.45rem;
+
+  color: rgba(255, 253, 248, 0.4);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer-contact-block p,
+.footer-contact-block a {
+  display: block;
+
+  color: rgba(255, 253, 248, 0.72);
+
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.footer-contact-block a {
+  transition: color var(--transition);
+}
+
+.footer-contact-block a:hover {
+  color: var(--color-gold);
+}
+
+/* =========================================
+   FOOTER MIDDLE
+========================================= */
+
+.footer-middle {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-middle-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr auto;
+  gap: 3rem;
+  align-items: center;
+
+  padding: 2rem 0;
+}
+
+.footer-hours-title {
+  display: block;
+  margin-bottom: 0.75rem;
+
+  color: var(--color-gold);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer-middle p {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  margin-right: 2rem;
+
+  color: rgba(255, 253, 248, 0.55);
+
+  font-size: 0.78rem;
+}
+
+.footer-middle p strong {
+  color: rgba(255, 253, 248, 0.85);
+  font-weight: 500;
+}
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.footer-social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: rgba(255, 253, 248, 0.7);
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  transition: color var(--transition);
+}
+
+.footer-social-links a span {
+  color: var(--color-gold);
+}
+
+.footer-social-links a:hover {
+  color: var(--color-cream);
+}
+
+/* =========================================
+   P.O. BOX
+========================================= */
+
+.footer-po-box {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.footer-po-box span {
+  color: rgba(255, 253, 248, 0.4);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.footer-po-box strong {
+  color: var(--color-gold);
+
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footer-bottom {
+  padding: 1.5rem 0;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-bottom p,
+.footer-bottom span,
+.footer-bottom a {
+  color: rgba(255, 253, 248, 0.38);
+
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-bottom a {
+  transition: color var(--transition);
+}
+
+.footer-bottom a:hover {
+  color: var(--color-gold);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-contact {
+    grid-column: span 2;
+  }
+
+  .footer-middle-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-po-box {
+    grid-column: span 2;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .footer-main {
+    padding: 4rem 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+    max-width: 100%;
+  }
+
+  .footer-contact {
+    grid-column: span 2;
+  }
+
+  .footer-middle-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .footer-middle p {
+    display: flex;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
+
+  .footer-po-box {
+    grid-column: auto;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+  }
+
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand,
+  .footer-contact {
+    grid-column: auto;
+  }
+
+  .footer-logo-main {
+    font-size: 1.7rem;
+  }
+
+  .footer-social-links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+}
