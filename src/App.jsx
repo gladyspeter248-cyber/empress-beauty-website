@@ -1,49 +1,131 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
+import EmpressAI from "./components/EmpressAI";
 
 import Home from "./pages/Home";
+import About from "./pages/About";
 import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
-import Team from "./pages/Team";
-import About from "./pages/About";
-import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
-import BlogArticle from "./pages/BlogArticle";
+import Contact from "./pages/Contact";
+import Team from "./pages/Team";
+import Blog from "./pages/Blog";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Account from "./pages/Account";
+
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminServices from "./pages/AdminServices";
+import AdminTestimonials from "./pages/AdminTestimonials";
 
 function App() {
-  return (
-    <BrowserRouter>
+    return (
+        <BrowserRouter>
 
-      <Navbar />
+            <Navbar />
 
-      <Routes>
+            <Routes>
 
-        <Route path="/" element={<Home />} />
+                {/* ==============================
+                    CUSTOMER PAGES
+                ============================== */}
 
-        <Route path="/services" element={<Services />} />
+                <Route
+                    path="/"
+                    element={<Home />}
+                />
 
-        <Route path="/gallery" element={<Gallery />} />
+                <Route
+                    path="/about"
+                    element={<About />}
+                />
 
-        <Route path="/team" element={<Team />} />
+                <Route
+                    path="/services"
+                    element={<Services />}
+                />
 
-        <Route path="/about" element={<About />} />
+                <Route
+                    path="/gallery"
+                    element={<Gallery />}
+                />
 
-        <Route path="/blog" element={<Blog />} />
-        
-        <Route path="/blog/:id" element={<BlogArticle />} />
+                <Route
+                    path="/booking"
+                    element={<Booking />}
+                />
 
-        <Route path="/contact" element={<Contact />} />
+                <Route
+                    path="/contact"
+                    element={<Contact />}
+                />
 
-        <Route path="/booking" element={<Booking />} />
+                <Route
+                    path="/team"
+                    element={<Team />}
+                />
 
-      </Routes>
-    <Footer /> 
+                <Route
+                    path="/blog"
+                    element={<Blog />}
+                />
 
-    </BrowserRouter>
-  );
+                <Route
+                    path="/login"
+                    element={<Login />}
+                />
+
+                <Route
+                    path="/register"
+                    element={<Register />}
+                />
+
+                <Route
+                    path="/account"
+                    element={<Account />}
+                />
+
+
+                {/* ==============================
+                    ADMIN PAGES
+                ============================== */}
+
+                <Route
+                    path="/admin/login"
+                    element={<AdminLogin />}
+                />
+
+                <Route
+                    path="/admin/dashboard"
+                    element={<AdminDashboard />}
+                />
+
+                <Route
+                    path="/admin/services"
+                    element={<AdminServices />}
+                />
+
+                <Route
+                    path="/admin/testimonials"
+                    element={<AdminTestimonials />}
+                />
+
+            </Routes>
+
+
+            {/* ==============================
+                FLOATING CUSTOMER FEATURES
+            ============================== */}
+
+            <WhatsAppButton />
+
+            <EmpressAI />
+
+        </BrowserRouter>
+    );
 }
 
 export default App;

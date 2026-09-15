@@ -1,4 +1,6 @@
+
 import { Link } from "react-router-dom";
+import Testimonials from "../components/Testimonials";
 import "./Home.css";
 
 const services = [
@@ -86,7 +88,9 @@ function Home() {
 
         <div className="container home-hero-content">
           <div className="home-hero-copy">
-            <span className="section-label">Empress Beauty · Masaki</span>
+            <span className="section-label">
+              Empress Beauty · Masaki
+            </span>
 
             <h1>
               Beauty,
@@ -147,7 +151,9 @@ function Home() {
             </div>
 
             <div className="home-intro-content">
-              <span className="section-label">Welcome to Empress</span>
+              <span className="section-label">
+                Welcome to Empress
+              </span>
 
               <h2>
                 Where beauty
@@ -181,14 +187,16 @@ function Home() {
 
 
       {/* =====================================================
-          SERVICES VISUAL SECTION
+          SERVICES
       ====================================================== */}
       <section className="home-services">
         <div className="container">
 
           <div className="home-section-heading">
             <div>
-              <span className="section-label">What We Do</span>
+              <span className="section-label">
+                What We Do
+              </span>
 
               <h2>
                 Beauty,
@@ -204,16 +212,17 @@ function Home() {
                 style and make every visit feel special.
               </p>
 
-              <Link to="/services" className="home-text-link dark">
+              <Link
+                to="/services"
+                className="home-text-link dark"
+              >
                 View All Services
                 <span>↗</span>
               </Link>
             </div>
           </div>
 
-
           <div className="home-service-grid">
-
             {services.map((service) => (
               <Link
                 to={service.link}
@@ -221,7 +230,10 @@ function Home() {
                 key={service.number}
               >
                 <div className="home-service-image">
-                  <img src={service.image} alt={service.title} />
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                  />
 
                   <span className="home-service-number">
                     {service.number}
@@ -244,14 +256,14 @@ function Home() {
                 </div>
               </Link>
             ))}
-
           </div>
+
         </div>
       </section>
 
 
       {/* =====================================================
-          EXPERIENCE IMAGE BANNER
+          EXPERIENCE
       ====================================================== */}
       <section className="home-experience">
         <div className="home-experience-image">
@@ -264,7 +276,9 @@ function Home() {
         <div className="home-experience-overlay"></div>
 
         <div className="container home-experience-content">
-          <span className="section-label">The Empress Experience</span>
+          <span className="section-label">
+            The Empress Experience
+          </span>
 
           <h2>
             You deserve
@@ -292,7 +306,9 @@ function Home() {
         <div className="container">
 
           <div className="home-philosophy-top">
-            <span className="section-label">Our Philosophy</span>
+            <span className="section-label">
+              Our Philosophy
+            </span>
 
             <h2>
               Less about following
@@ -305,7 +321,9 @@ function Home() {
 
             <div className="home-philosophy-item">
               <span>01</span>
+
               <h3>Personal</h3>
+
               <p>
                 Every beauty experience begins with understanding
                 what makes you feel confident and comfortable.
@@ -314,7 +332,9 @@ function Home() {
 
             <div className="home-philosophy-item">
               <span>02</span>
+
               <h3>Intentional</h3>
+
               <p>
                 Thoughtful details, careful techniques and a
                 considered approach to every service.
@@ -323,7 +343,9 @@ function Home() {
 
             <div className="home-philosophy-item">
               <span>03</span>
+
               <h3>Elevated</h3>
+
               <p>
                 A polished environment and refined beauty
                 experience designed to leave you feeling renewed.
@@ -343,8 +365,11 @@ function Home() {
         <div className="container">
 
           <div className="home-section-heading lookbook-heading">
+
             <div>
-              <span className="section-label">The Lookbook</span>
+              <span className="section-label">
+                The Lookbook
+              </span>
 
               <h2>
                 A little
@@ -359,13 +384,16 @@ function Home() {
                 inspire the Empress aesthetic.
               </p>
 
-              <Link to="/gallery" className="home-text-link dark">
+              <Link
+                to="/gallery"
+                className="home-text-link dark"
+              >
                 View Full Gallery
                 <span>↗</span>
               </Link>
             </div>
-          </div>
 
+          </div>
 
           <div className="home-lookbook-grid">
 
@@ -376,11 +404,15 @@ function Home() {
                 key={item.title}
               >
                 <div className="home-lookbook-image">
-                  <img src={item.image} alt={item.title} />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                  />
                 </div>
 
                 <div className="home-lookbook-meta">
                   <span>{item.category}</span>
+
                   <h3>{item.title}</h3>
                 </div>
               </Link>
@@ -421,7 +453,10 @@ function Home() {
                 the details.
               </p>
 
-              <Link to="/booking" className="home-outline-link">
+              <Link
+                to="/booking"
+                className="home-outline-link"
+              >
                 Begin Your Experience
                 <span>↗</span>
               </Link>
@@ -441,6 +476,12 @@ function Home() {
 
 
       {/* =====================================================
+          TESTIMONIALS
+      ====================================================== */}
+      <Testimonials />
+
+
+      {/* =====================================================
           LOCATION
       ====================================================== */}
       <section className="home-location">
@@ -456,7 +497,10 @@ function Home() {
             </div>
 
             <div className="home-location-content">
-              <span className="section-label">Visit Empress</span>
+
+              <span className="section-label">
+                Visit Empress
+              </span>
 
               <h2>
                 Your beauty
@@ -473,11 +517,15 @@ function Home() {
 
                 <div>
                   <span>Location</span>
-                  <p>Masaki, Dar es Salaam, Tanzania</p>
+
+                  <p>
+                    Masaki, Dar es Salaam, Tanzania
+                  </p>
                 </div>
 
                 <div>
                   <span>Phone</span>
+
                   <p>
                     +255 741 309 031
                     <br />
@@ -487,6 +535,7 @@ function Home() {
 
                 <div>
                   <span>Opening Hours</span>
+
                   <p>
                     Monday – Saturday · 8:00 AM – 8:00 PM
                     <br />
@@ -496,10 +545,14 @@ function Home() {
 
               </div>
 
-              <Link to="/contact" className="home-outline-link">
+              <Link
+                to="/contact"
+                className="home-outline-link"
+              >
                 Contact Empress
                 <span>↗</span>
               </Link>
+
             </div>
 
           </div>
@@ -521,6 +574,7 @@ function Home() {
             </div>
 
             <div>
+
               <span className="section-label">
                 Empress Beauty
               </span>
@@ -536,9 +590,13 @@ function Home() {
                 We would love to welcome you.
               </p>
 
-              <Link to="/booking" className="btn btn-gold">
+              <Link
+                to="/booking"
+                className="btn btn-gold"
+              >
                 Book an Appointment
               </Link>
+
             </div>
 
           </div>
@@ -551,3 +609,4 @@ function Home() {
 }
 
 export default Home;
+

@@ -1,16 +1,162 @@
+
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Contact.css";
 
+const API_URL = "http://localhost:8080/api";
+
 function Contact() {
+  // =========================================================
+  // FORM STATE
+  // =========================================================
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // =========================================================
+  // HANDLE INPUT CHANGES
+  // =========================================================
+
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+
+    setFormData((previous) => ({
+      ...previous,
+      [id]: value,
+    }));
+
+    // Remove old messages when the user starts editing again
+    setSuccessMessage("");
+    setErrorMessage("");
+  };
+
+  // =========================================================
+  // SUBMIT CONTACT FORM
+  // =========================================================
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    // ---------------------------------------------------------
+    // FRONTEND VALIDATION
+    // ---------------------------------------------------------
+
+    if (!formData.name.trim()) {
+      setErrorMessage("Please enter your name.");
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      setErrorMessage("Please enter your email address.");
+      return;
+    }
+
+    // Basic email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(formData.email.trim())) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    if (!formData.subject.trim()) {
+      setErrorMessage("Please select a subject.");
+      return;
+    }
+
+    if (!formData.message.trim()) {
+      setErrorMessage("Please enter your message.");
+      return;
+    }
+
+    // ---------------------------------------------------------
+    // START SUBMISSION
+    // ---------------------------------------------------------
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        `${API_URL}/contact-messages`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: formData.phone.trim(),
+            subject: formData.subject.trim(),
+            message: formData.message.trim(),
+          }),
+        }
+      );
+
+      const data = await response.json().catch(() => null);
+
+      // -------------------------------------------------------
+      // HANDLE BACKEND ERROR
+      // -------------------------------------------------------
+
+      if (!response.ok) {
+        const backendMessage =
+          typeof data === "string"
+            ? data
+            : "Unable to send your message. Please try again.";
+
+        throw new Error(backendMessage);
+      }
+
+      // -------------------------------------------------------
+      // SUCCESS
+      // -------------------------------------------------------
+
+      setSuccessMessage(
+        "Your message has been sent successfully. We'll get back to you as soon as possible."
+      );
+
+      // Clear form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      setErrorMessage(
+        error.message ||
+          "Something went wrong while sending your message. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="contact-page">
 
-      {/* =========================================
+      {/* =====================================================
           HERO
-      ========================================= */}
+      ====================================================== */}
 
       <section className="contact-hero">
-
         <div className="container contact-hero-content">
 
           <span className="section-label">
@@ -34,13 +180,12 @@ function Contact() {
         <div className="contact-hero-number">
           08
         </div>
-
       </section>
 
 
-      {/* =========================================
+      {/* =====================================================
           CONTACT INTRO
-      ========================================= */}
+      ====================================================== */}
 
       <section className="contact-intro">
 
@@ -85,9 +230,9 @@ function Contact() {
       </section>
 
 
-      {/* =========================================
+      {/* =====================================================
           CONTACT DETAILS + FORM
-      ========================================= */}
+      ====================================================== */}
 
       <section className="contact-main">
 
@@ -95,8 +240,9 @@ function Contact() {
 
           <div className="contact-main-grid">
 
-
-            {/* CONTACT DETAILS */}
+            {/* =================================================
+                CONTACT DETAILS
+            ================================================== */}
 
             <div className="contact-details">
 
@@ -183,8 +329,7 @@ function Contact() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Instagram
-                    <span>↗</span>
+                    Instagram <span>↗</span>
                   </a>
 
                   <a
@@ -192,8 +337,7 @@ function Contact() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    TikTok
-                    <span>↗</span>
+                    TikTok <span>↗</span>
                   </a>
 
                 </div>
@@ -203,7 +347,9 @@ function Contact() {
             </div>
 
 
-            {/* CONTACT FORM */}
+            {/* =================================================
+                CONTACT FORM
+            ================================================== */}
 
             <div className="contact-form-wrapper">
 
@@ -222,7 +368,14 @@ function Contact() {
               </div>
 
 
-              <form className="contact-form">
+              <form
+                className="contact-form"
+                onSubmit={handleSubmit}
+              >
+
+                {/* =========================================
+                    NAME + EMAIL
+                ========================================== */}
 
                 <div className="contact-form-row">
 
@@ -240,6 +393,9 @@ function Contact() {
                       type="text"
                       className="form-input"
                       placeholder="Enter your name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      disabled={loading}
                     />
 
                   </div>
@@ -259,12 +415,19 @@ function Contact() {
                       type="email"
                       className="form-input"
                       placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      disabled={loading}
                     />
 
                   </div>
 
                 </div>
 
+
+                {/* =========================================
+                    PHONE + SUBJECT
+                ========================================== */}
 
                 <div className="contact-form-row">
 
@@ -282,6 +445,9 @@ function Contact() {
                       type="tel"
                       className="form-input"
                       placeholder="+255..."
+                      value={formData.phone}
+                      onChange={handleChange}
+                      disabled={loading}
                     />
 
                   </div>
@@ -299,29 +465,28 @@ function Contact() {
                     <select
                       id="subject"
                       className="form-select"
-                      defaultValue=""
+                      value={formData.subject}
+                      onChange={handleChange}
+                      disabled={loading}
                     >
 
-                      <option
-                        value=""
-                        disabled
-                      >
+                      <option value="" disabled>
                         Select a subject
                       </option>
 
-                      <option value="booking">
+                      <option value="Booking Question">
                         Booking Question
                       </option>
 
-                      <option value="services">
+                      <option value="Services">
                         Services
                       </option>
 
-                      <option value="bridal">
+                      <option value="Bridal & Events">
                         Bridal & Events
                       </option>
 
-                      <option value="general">
+                      <option value="General Enquiry">
                         General Enquiry
                       </option>
 
@@ -331,6 +496,10 @@ function Contact() {
 
                 </div>
 
+
+                {/* =========================================
+                    MESSAGE
+                ========================================== */}
 
                 <div className="form-group">
 
@@ -345,18 +514,68 @@ function Contact() {
                     id="message"
                     className="form-textarea"
                     placeholder="Tell us how we can help..."
-                  ></textarea>
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={loading}
+                  />
 
                 </div>
 
 
+                {/* =========================================
+                    SUCCESS MESSAGE
+                ========================================== */}
+
+                {successMessage && (
+
+                  <div
+                    className="contact-success-message"
+                    role="status"
+                  >
+                    ✓ {successMessage}
+                  </div>
+
+                )}
+
+
+                {/* =========================================
+                    ERROR MESSAGE
+                ========================================== */}
+
+                {errorMessage && (
+
+                  <div
+                    className="contact-error-message"
+                    role="alert"
+                  >
+                    {errorMessage}
+                  </div>
+
+                )}
+
+
+                {/* =========================================
+                    SUBMIT BUTTON
+                ========================================== */}
+
                 <button
                   type="submit"
                   className="btn btn-primary contact-submit"
+                  disabled={loading}
                 >
-                  Send Message
-                  <span>↗</span>
+
+                  {loading ? (
+                    <>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message <span>↗</span>
+                    </>
+                  )}
+
                 </button>
+
 
                 <p className="contact-form-note">
                   We'll get back to you as soon as possible.
@@ -373,9 +592,9 @@ function Contact() {
       </section>
 
 
-      {/* =========================================
+      {/* =====================================================
           VISUAL LOCATION
-      ========================================= */}
+      ====================================================== */}
 
       <section className="contact-location">
 
@@ -443,9 +662,9 @@ function Contact() {
       </section>
 
 
-      {/* =========================================
+      {/* =====================================================
           FAQ MINI SECTION
-      ========================================= */}
+      ====================================================== */}
 
       <section className="contact-faq">
 
@@ -467,8 +686,7 @@ function Contact() {
               to="/booking"
               className="contact-faq-link"
             >
-              View Booking
-              <span>→</span>
+              View Booking <span>→</span>
             </Link>
 
           </div>
@@ -547,9 +765,9 @@ function Contact() {
       </section>
 
 
-      {/* =========================================
+      {/* =====================================================
           FINAL CTA
-      ========================================= */}
+      ====================================================== */}
 
       <section className="contact-cta">
 
@@ -589,3 +807,4 @@ function Contact() {
 }
 
 export default Contact;
+

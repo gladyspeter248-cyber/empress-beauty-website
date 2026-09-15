@@ -1,0 +1,383 @@
+.leave-review-section {
+    width: 100%;
+    padding: 100px 20px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.leave-review-container {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.leave-review-heading {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 50px;
+}
+
+.leave-review-heading .section-label {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b47b72;
+}
+
+.leave-review-heading h2 {
+    margin: 0 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 52px);
+    line-height: 1.15;
+    font-weight: 500;
+    color: #2d2523;
+}
+
+.leave-review-heading h2 em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.leave-review-heading p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #746966;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.leave-review-form {
+    padding: 42px;
+    background: #fffaf8;
+    border: 1px solid #eee2df;
+    box-shadow: 0 12px 35px rgba(80, 50, 45, 0.06);
+}
+
+
+/* ==========================================
+   CUSTOMER
+========================================== */
+
+.review-customer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eadfdb;
+}
+
+.review-customer-avatar {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ead2cc;
+    color: #674b45;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.review-customer div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.review-customer span {
+    font-size: 12px;
+    color: #8a7974;
+}
+
+.review-customer strong {
+    font-size: 15px;
+    color: #2d2523;
+}
+
+
+/* ==========================================
+   FIELD
+========================================== */
+
+.review-field {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.review-field label {
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #493e3a;
+}
+
+
+/* ==========================================
+   STARS
+========================================== */
+
+.review-stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.review-star {
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    font-size: 35px;
+    line-height: 1;
+
+    color: #ddd2cf;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.review-star:hover {
+    transform: scale(1.08);
+}
+
+.review-star.active {
+    color: #c59a72;
+}
+
+.rating-hint {
+    display: block;
+    margin-top: 8px;
+
+    font-size: 13px;
+    color: #8a7974;
+}
+
+
+/* ==========================================
+   SELECT + TEXTAREA
+========================================== */
+
+.review-field select,
+.review-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    border: 1px solid #ded2ce;
+    background: #ffffff;
+
+    color: #493e3a;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.review-field select {
+    height: 52px;
+    padding: 0 15px;
+
+    cursor: pointer;
+}
+
+.review-field textarea {
+    min-height: 150px;
+    padding: 15px;
+
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.review-field select:focus,
+.review-field textarea:focus {
+    border-color: #b47b72;
+    box-shadow: 0 0 0 3px rgba(180, 123, 114, 0.10);
+}
+
+.review-field select:disabled,
+.review-field textarea:disabled {
+    background: #f7f3f1;
+    cursor: not-allowed;
+}
+
+.review-field textarea::placeholder {
+    color: #aaa09c;
+}
+
+
+/* ==========================================
+   CHARACTER COUNT
+========================================== */
+
+.character-count {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+
+    font-size: 12px;
+    color: #9a8b86;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   MESSAGES
+========================================== */
+
+.review-error,
+.review-success {
+    padding: 14px 16px;
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.review-error {
+    border: 1px solid #e3b8b1;
+    background: #fff4f2;
+    color: #9a4f45;
+}
+
+.review-success {
+    border: 1px solid #c9ddc8;
+    background: #f3faf2;
+    color: #4c7549;
+}
+
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.review-submit-button {
+    width: 100%;
+    min-height: 54px;
+
+    border: none;
+
+    background: #2d2523;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.review-submit-button:hover {
+    background: #493e3a;
+    transform: translateY(-2px);
+}
+
+.review-submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ==========================================
+   NOTE
+========================================== */
+
+.review-note {
+    margin: 16px 0 0;
+
+    text-align: center;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    color: #8a7974;
+}
+
+
+/* ==========================================
+   LOGIN MESSAGE
+========================================== */
+
+.leave-review-login-message {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #fffaf8;
+    border: 1px solid #eee2df;
+}
+
+.leave-review-login-message p {
+    margin: 0;
+
+    font-size: 15px;
+    color: #746966;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 620px) {
+
+    .leave-review-section {
+        padding: 70px 16px;
+    }
+
+    .leave-review-heading {
+        margin-bottom: 40px;
+    }
+
+    .leave-review-heading h2 {
+        font-size: 35px;
+    }
+
+    .leave-review-heading p {
+        font-size: 15px;
+    }
+
+    .leave-review-form {
+        padding: 26px 20px;
+    }
+
+    .review-star {
+        font-size: 31px;
+    }
+
+    .review-field select {
+        height: 50px;
+    }
+}

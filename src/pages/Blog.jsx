@@ -1,1206 +1,433 @@
-
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Booking.css";
+import "./Blog.css";
 
-const serviceCategories = [
-  {
-    category: "Hair",
-    services: [
-      {
-        name: "Wash & Blow Dry",
-        price: 35000,
-        duration: "45 min",
-      },
-      {
-        name: "Silk Press",
-        price: 60000,
-        duration: "90 min",
-      },
-      {
-        name: "Hair Treatment",
-        price: 50000,
-        duration: "60 min",
-      },
-      {
-        name: "Braids",
-        price: 80000,
-        duration: "2–5 hrs",
-        from: true,
-      },
-      {
-        name: "Wig Installation",
-        price: 70000,
-        duration: "90 min",
-        from: true,
-      },
-      {
-        name: "Wig Styling",
-        price: 50000,
-        duration: "60 min",
-        from: true,
-      },
-    ],
-  },
-  {
-    category: "Nails",
-    services: [
-      {
-        name: "Classic Manicure",
-        price: 25000,
-        duration: "45 min",
-      },
-      {
-        name: "Gel Manicure",
-        price: 40000,
-        duration: "60 min",
-      },
-      {
-        name: "Classic Pedicure",
-        price: 35000,
-        duration: "60 min",
-      },
-      {
-        name: "Gel Pedicure",
-        price: 50000,
-        duration: "75 min",
-      },
-      {
-        name: "Acrylic Extensions",
-        price: 70000,
-        duration: "90 min",
-        from: true,
-      },
-      {
-        name: "Nail Art",
-        price: 10000,
-        duration: "15–45 min",
-        from: true,
-      },
-    ],
-  },
-  {
-    category: "Makeup",
-    services: [
-      {
-        name: "Soft Glam",
-        price: 60000,
-        duration: "60 min",
-      },
-      {
-        name: "Full Glam",
-        price: 85000,
-        duration: "90 min",
-      },
-      {
-        name: "Event Makeup",
-        price: 100000,
-        duration: "90 min",
-      },
-      {
-        name: "Bridal Makeup",
-        price: 180000,
-        duration: "2 hrs",
-        from: true,
-      },
-    ],
-  },
-  {
-    category: "Skincare",
-    services: [
-      {
-        name: "Express Facial",
-        price: 45000,
-        duration: "30 min",
-      },
-      {
-        name: "Deep Cleansing Facial",
-        price: 70000,
-        duration: "60 min",
-      },
-      {
-        name: "Glow Facial",
-        price: 85000,
-        duration: "60 min",
-      },
-      {
-        name: "Hydrating Facial",
-        price: 90000,
-        duration: "60 min",
-      },
-      {
-        name: "Premium Facial",
-        price: 120000,
-        duration: "75 min",
-      },
-    ],
-  },
-  {
-    category: "Bridal & Events",
-    services: [
-      {
-        name: "Bridal Makeup",
-        price: 180000,
-        duration: "2 hrs",
-        from: true,
-      },
-      {
-        name: "Bridal Hair Styling",
-        price: 120000,
-        duration: "2 hrs",
-        from: true,
-      },
-      {
-        name: "Bridal Beauty Package",
-        price: 350000,
-        duration: "4–6 hrs",
-        from: true,
-      },
-      {
-        name: "Event Beauty Package",
-        price: 180000,
-        duration: "2–4 hrs",
-        from: true,
-      },
-    ],
-  },
-  {
-    category: "Self-Care",
-    services: [
-      {
-        name: "Back & Shoulder Massage",
-        price: 50000,
-        duration: "45 min",
-      },
-      {
-        name: "Relaxation Massage",
-        price: 80000,
-        duration: "60 min",
-      },
-      {
-        name: "Full Body Massage",
-        price: 100000,
-        duration: "90 min",
-      },
-      {
-        name: "Body Scrub",
-        price: 80000,
-        duration: "60 min",
-      },
-      {
-        name: "Beauty Consultation",
-        price: 30000,
-        duration: "30 min",
-      },
-    ],
-  },
-];
+function Blog() {
+    const [activeCategory, setActiveCategory] =
+        useState("All");
 
-const allServices = serviceCategories.flatMap((category) =>
-  category.services.map((service) => ({
-    ...service,
-    category: category.category,
-  }))
-);
+    const [selectedArticle, setSelectedArticle] =
+        useState(null);
 
-function Booking() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    service: "",
-    date: "",
-    time: "",
-    clientType: "",
-    notes: "",
-  });
+    const articles = [
+        {
+            id: 1,
+            category: "Hair",
+            title: "How to Keep Your Hair Healthy and Beautiful",
+            date: "September 5, 2026",
+            image:
+                "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=85",
+            excerpt:
+                "Healthy hair starts with the right routine. Discover simple habits that can help your hair stay strong, soft and beautiful.",
+            content: [
+                "Beautiful hair is not only about styling. Healthy hair begins with understanding what your hair needs and giving it consistent care.",
+                "Start by keeping your scalp clean and moisturised. Choose products that are suitable for your hair type and avoid excessive use of heat whenever possible.",
+                "Regular treatments can also help maintain the strength and appearance of your hair. A professional hair consultation can help you understand which treatments and styles are best for you.",
+                "At Empress Beauty, we believe that beautiful styling should always go together with healthy hair care."
+            ]
+        },
+        {
+            id: 2,
+            category: "Skincare",
+            title: "Simple Steps for Glowing Skin",
+            date: "August 28, 2026",
+            image:
+                "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=85",
+            excerpt:
+                "Your skin deserves consistent care. Learn the everyday steps that can help you maintain a fresh and healthy-looking glow.",
+            content: [
+                "Great skin does not have to mean having a complicated routine. Consistency is one of the most important parts of good skincare.",
+                "Begin with gentle cleansing to remove dirt, excess oil and daily buildup. Follow with a suitable moisturiser to help maintain your skin's natural barrier.",
+                "Sun protection is also an important part of your daytime routine. Protecting your skin from excessive sun exposure can help maintain its appearance over time.",
+                "Professional facials and skincare treatments can complement your home routine and give your skin some extra care."
+            ]
+        },
+        {
+            id: 3,
+            category: "Makeup",
+            title: "Natural Makeup: Less Can Be More",
+            date: "August 20, 2026",
+            image:
+                "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1000&q=85",
+            excerpt:
+                "A natural makeup look can enhance your features while keeping your appearance fresh, elegant and effortless.",
+            content: [
+                "Natural makeup is all about enhancing your existing features rather than hiding them.",
+                "Start with a good skincare routine and a lightweight base. Choose shades that complement your natural complexion and use makeup strategically rather than applying heavy layers.",
+                "Soft definition around the eyes, naturally shaped brows and a subtle lip colour can create an elegant everyday appearance.",
+                "For special occasions, our professional makeup artists can customise your look to suit your outfit, event and personal style."
+            ]
+        },
+        {
+            id: 4,
+            category: "Bridal",
+            title: "Your Bridal Beauty Preparation Guide",
+            date: "August 12, 2026",
+            image:
+                "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1000&q=85",
+            excerpt:
+                "Planning your wedding beauty look? Here are some important things to consider before your big day.",
+            content: [
+                "Your wedding day is one of those moments where every detail matters. Planning your beauty services early can help make the experience relaxed and enjoyable.",
+                "Think about your hairstyle, makeup, nails and skincare well in advance. If you have a specific look in mind, share your inspiration with your beauty professional.",
+                "A trial appointment is also a great way to test your preferred hairstyle and makeup before the wedding day.",
+                "Most importantly, choose a look that makes you feel like yourself. Your bridal beauty should reflect your personality while making you feel confident and beautiful."
+            ]
+        },
+        {
+            id: 5,
+            category: "Nails",
+            title: "How to Make Your Manicure Last Longer",
+            date: "August 4, 2026",
+            image:
+                "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=85",
+            excerpt:
+                "A beautiful manicure deserves to last. Follow these simple habits to help keep your nails looking fresh.",
+            content: [
+                "A fresh manicure can instantly make you feel polished and put together. With a little care, you can help maintain that look for longer.",
+                "Avoid using your nails as tools when opening containers or handling objects. Excessive exposure to harsh chemicals can also affect your manicure.",
+                "Keep your hands and cuticles moisturised regularly. This can help your hands maintain a neat and healthy appearance.",
+                "When your nails need professional attention, visit Empress Beauty for a manicure designed around your personal style."
+            ]
+        },
+        {
+            id: 6,
+            category: "Self-Care",
+            title: "Why Making Time for Yourself Matters",
+            date: "July 27, 2026",
+            image:
+                "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=85",
+            excerpt:
+                "Self-care is more than looking good. It is about creating moments to relax, recharge and feel your best.",
+            content: [
+                "Life can become busy very quickly, and it is easy to put yourself last. Taking time for yourself can be a simple but meaningful way to reset.",
+                "A beauty appointment can be more than a service. It can be an opportunity to slow down, relax and enjoy a moment dedicated entirely to you.",
+                "Whether it is a fresh hairstyle, manicure, facial or another beauty treatment, choose something that makes you feel cared for.",
+                "At Empress Beauty, our goal is to make every visit an experience where beauty and self-care come together."
+            ]
+        }
+    ];
 
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    const categories = [
+        "All",
+        "Hair",
+        "Skincare",
+        "Makeup",
+        "Bridal",
+        "Nails",
+        "Self-Care"
+    ];
 
-  const today = new Date().toISOString().split("T")[0];
+    const filteredArticles =
+        activeCategory === "All"
+            ? articles
+            : articles.filter(
+                  (article) =>
+                      article.category ===
+                      activeCategory
+              );
 
-  const selectedService = allServices.find(
-    (service) => service.name === formData.service
-  );
+    const closeArticle = () => {
+        setSelectedArticle(null);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormData((previous) => ({
-      ...previous,
-      [name]: value,
-    }));
-
-    setErrors((previous) => ({
-      ...previous,
-      [name]: "",
-    }));
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "Please enter your first name.";
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Please enter your last name.";
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Please enter your phone number.";
-    } else if (!/^[+0-9\s()-]{7,20}$/.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid phone number.";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Please enter your email address.";
-    } else if (
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
-    ) {
-      newErrors.email = "Please enter a valid email address.";
-    }
-
-    if (!formData.service) {
-      newErrors.service = "Please choose a service.";
-    }
-
-    if (!formData.date) {
-      newErrors.date = "Please choose your preferred date.";
-    }
-
-    if (formData.date && formData.date < today) {
-      newErrors.date = "Please choose a future date.";
-    }
-
-    if (!formData.time) {
-      newErrors.time = "Please choose your preferred time.";
-    }
-
-    if (!formData.clientType) {
-      newErrors.clientType =
-        "Please tell us whether this is your first visit.";
-    }
-
-    return newErrors;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const validationErrors = validateForm();
-
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      setSubmitted(false);
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, 800);
-  };
-
-  if (submitted) {
     return (
-      <main className="booking-page">
+        <main className="blog-page">
 
-        <section className="booking-success">
+            {/* ==========================================
+                HERO
+            ========================================== */}
 
-          <div className="container">
+            <section className="blog-hero">
 
-            <div className="booking-success-inner">
+                <div className="blog-hero-content">
 
-              <span className="section-label">
-                Empress Beauty
-              </span>
+                    <p className="blog-eyebrow">
+                        EMPRESS BEAUTY
+                    </p>
 
-              <div className="booking-success-icon">
-                ✓
-              </div>
+                    <h1>
+                        Beauty Journal
+                    </h1>
 
-              <h1>
-                Thank you,
-                <br />
-                <em>{formData.firstName}.</em>
-              </h1>
+                    <p>
+                        Beauty tips, inspiration and
+                        self-care ideas to help you
+                        look and feel your best.
+                    </p>
 
-              <p>
-                Your appointment request has been received.
-                Our team will contact you to confirm your
-                appointment details.
-              </p>
-
-              <div className="booking-success-details">
-
-                <div>
-                  <span>Service</span>
-                  <strong>{formData.service}</strong>
                 </div>
 
-                <div>
-                  <span>Date</span>
-                  <strong>{formData.date}</strong>
+            </section>
+
+            {/* ==========================================
+                INTRO
+            ========================================== */}
+
+            <section className="blog-intro">
+
+                <p className="blog-small-title">
+                    BEAUTY • CONFIDENCE • EXPERIENCE
+                </p>
+
+                <h2>
+                    Inspiration for Your Beauty Journey
+                </h2>
+
+                <p>
+                    Welcome to the Empress Beauty
+                    Journal. Explore practical beauty
+                    advice, inspiration and simple
+                    self-care ideas from our world of
+                    beauty.
+                </p>
+
+            </section>
+
+            {/* ==========================================
+                CATEGORIES
+            ========================================== */}
+
+            <section className="blog-content">
+
+                <div className="blog-categories">
+
+                    {categories.map(
+                        (category) => (
+                            <button
+                                key={category}
+                                type="button"
+                                className={
+                                    activeCategory ===
+                                    category
+                                        ? "blog-category active"
+                                        : "blog-category"
+                                }
+                                onClick={() =>
+                                    setActiveCategory(
+                                        category
+                                    )
+                                }
+                            >
+                                {category}
+                            </button>
+                        )
+                    )}
+
                 </div>
 
-                <div>
-                  <span>Preferred Time</span>
-                  <strong>{formData.time}</strong>
+                {/* ======================================
+                    ARTICLES
+                ====================================== */}
+
+                <div className="blog-grid">
+
+                    {filteredArticles.map(
+                        (article) => (
+                            <article
+                                key={article.id}
+                                className="blog-card"
+                            >
+
+                                <div className="blog-card-image">
+
+                                    <img
+                                        src={article.image}
+                                        alt={
+                                            article.title
+                                        }
+                                        loading="lazy"
+                                    />
+
+                                    <span>
+                                        {
+                                            article.category
+                                        }
+                                    </span>
+
+                                </div>
+
+                                <div className="blog-card-body">
+
+                                    <p className="blog-date">
+                                        {article.date}
+                                    </p>
+
+                                    <h3>
+                                        {
+                                            article.title
+                                        }
+                                    </h3>
+
+                                    <p>
+                                        {
+                                            article.excerpt
+                                        }
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        className="read-more"
+                                        onClick={() =>
+                                            setSelectedArticle(
+                                                article
+                                            )
+                                        }
+                                    >
+                                        Read Article
+                                        <span>→</span>
+                                    </button>
+
+                                </div>
+
+                            </article>
+                        )
+                    )}
+
                 </div>
 
-              </div>
+            </section>
 
-              <div className="booking-success-actions">
+            {/* ==========================================
+                NEWSLETTER / CTA
+            ========================================== */}
 
-                <Link
-                  to="/"
-                  className="btn btn-primary"
+            <section className="blog-cta">
+
+                <div className="blog-cta-content">
+
+                    <p className="blog-small-title">
+                        YOUR BEAUTY. YOUR MOMENT.
+                    </p>
+
+                    <h2>
+                        Make Time for Yourself
+                    </h2>
+
+                    <p>
+                        Whether you need a fresh new
+                        look, a relaxing treatment or
+                        beauty preparation for a special
+                        occasion, we are here for you.
+                    </p>
+
+                    <div className="blog-cta-buttons">
+
+                        <a
+                            href="/booking"
+                            className="blog-primary-button"
+                        >
+                            Book an Appointment
+                        </a>
+
+                        <a
+                            href="/services"
+                            className="blog-secondary-button"
+                        >
+                            Explore Services
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            {/* ==========================================
+                FULL ARTICLE MODAL
+            ========================================== */}
+
+            {selectedArticle && (
+                <div
+                    className="blog-modal"
+                    onClick={closeArticle}
                 >
-                  Back Home
-                </Link>
 
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={() => {
-                    setSubmitted(false);
-                    setFormData({
-                      firstName: "",
-                      lastName: "",
-                      phone: "",
-                      email: "",
-                      service: "",
-                      date: "",
-                      time: "",
-                      clientType: "",
-                      notes: "",
-                    });
-                    setErrors({});
-                  }}
-                >
-                  Make Another Booking
-                </button>
+                    <div
+                        className="blog-modal-content"
+                        onClick={(event) =>
+                            event.stopPropagation()
+                        }
+                    >
 
-              </div>
+                        <button
+                            type="button"
+                            className="blog-modal-close"
+                            onClick={closeArticle}
+                            aria-label="Close article"
+                        >
+                            ×
+                        </button>
 
-            </div>
+                        <img
+                            src={
+                                selectedArticle.image
+                            }
+                            alt={
+                                selectedArticle.title
+                            }
+                            className="blog-modal-image"
+                        />
 
-          </div>
+                        <div className="blog-modal-body">
 
-        </section>
+                            <p className="blog-modal-category">
+                                {
+                                    selectedArticle.category
+                                }
+                            </p>
 
-      </main>
+                            <p className="blog-date">
+                                {
+                                    selectedArticle.date
+                                }
+                            </p>
+
+                            <h2>
+                                {
+                                    selectedArticle.title
+                                }
+                            </h2>
+
+                            {selectedArticle.content.map(
+                                (paragraph, index) => (
+                                    <p key={index}>
+                                        {paragraph}
+                                    </p>
+                                )
+                            )}
+
+                            <div className="blog-modal-booking">
+
+                                <p>
+                                    Ready to experience
+                                    Empress Beauty?
+                                </p>
+
+                                <a
+                                    href="/booking"
+                                    className="blog-primary-button"
+                                    onClick={
+                                        closeArticle
+                                    }
+                                >
+                                    Book an Appointment
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            )}
+
+        </main>
     );
-  }
-
-  return (
-    <main className="booking-page">
-
-      {/* =========================================
-          HERO
-      ========================================= */}
-
-      <section className="booking-hero">
-
-        <div className="container booking-hero-content">
-
-          <span className="section-label">
-            Appointments
-          </span>
-
-          <h1>
-            Your time,
-            <br />
-            <em>your appointment.</em>
-          </h1>
-
-          <p>
-            Tell us how we can make your next beauty
-            experience unforgettable.
-          </p>
-
-        </div>
-
-        <div className="booking-hero-number">
-          08
-        </div>
-
-      </section>
-
-
-      {/* =========================================
-          INTRO
-      ========================================= */}
-
-      <section className="booking-intro">
-
-        <div className="container">
-
-          <div className="booking-intro-grid">
-
-            <div>
-
-              <span className="section-label">
-                Let's Begin
-              </span>
-
-              <h2>
-                Your beauty
-                <br />
-                <em>moment awaits.</em>
-              </h2>
-
-            </div>
-
-            <div>
-
-              <p>
-                Complete the form below and tell us about
-                the experience you're looking for.
-              </p>
-
-              <p>
-                Our team will review your request and contact
-                you to confirm the appointment.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================
-          BOOKING AREA
-      ========================================= */}
-
-      <section className="booking-form-section">
-
-        <div className="container">
-
-          <div className="booking-layout">
-
-            {/* FORM */}
-
-            <form
-              className="booking-form"
-              onSubmit={handleSubmit}
-              noValidate
-            >
-
-              {/* YOUR DETAILS */}
-
-              <div className="booking-form-block">
-
-                <div className="booking-form-heading">
-
-                  <span className="booking-step">
-                    01
-                  </span>
-
-                  <div>
-                    <span className="section-label">
-                      Your Details
-                    </span>
-
-                    <h2>
-                      Tell us about you.
-                    </h2>
-                  </div>
-
-                </div>
-
-                <div className="booking-fields-grid">
-
-                  <div className="form-group">
-
-                    <label
-                      className="form-label"
-                      htmlFor="firstName"
-                    >
-                      First Name *
-                    </label>
-
-                    <input
-                      id="firstName"
-                      name="firstName"
-                      type="text"
-                      className="form-input"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      placeholder="Your first name"
-                    />
-
-                    {errors.firstName && (
-                      <span className="booking-error">
-                        {errors.firstName}
-                      </span>
-                    )}
-
-                  </div>
-
-
-                  <div className="form-group">
-
-                    <label
-                      className="form-label"
-                      htmlFor="lastName"
-                    >
-                      Last Name *
-                    </label>
-
-                    <input
-                      id="lastName"
-                      name="lastName"
-                      type="text"
-                      className="form-input"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      placeholder="Your last name"
-                    />
-
-                    {errors.lastName && (
-                      <span className="booking-error">
-                        {errors.lastName}
-                      </span>
-                    )}
-
-                  </div>
-
-
-                  <div className="form-group">
-
-                    <label
-                      className="form-label"
-                      htmlFor="phone"
-                    >
-                      Phone Number *
-                    </label>
-
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      className="form-input"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+255 7XX XXX XXX"
-                    />
-
-                    {errors.phone && (
-                      <span className="booking-error">
-                        {errors.phone}
-                      </span>
-                    )}
-
-                  </div>
-
-
-                  <div className="form-group">
-
-                    <label
-                      className="form-label"
-                      htmlFor="email"
-                    >
-                      Email Address *
-                    </label>
-
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      className="form-input"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="you@example.com"
-                    />
-
-                    {errors.email && (
-                      <span className="booking-error">
-                        {errors.email}
-                      </span>
-                    )}
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* SERVICE */}
-
-              <div className="booking-form-block">
-
-                <div className="booking-form-heading">
-
-                  <span className="booking-step">
-                    02
-                  </span>
-
-                  <div>
-                    <span className="section-label">
-                      Your Experience
-                    </span>
-
-                    <h2>
-                      Choose your service.
-                    </h2>
-                  </div>
-
-                </div>
-
-                <div className="form-group">
-
-                  <label
-                    className="form-label"
-                    htmlFor="service"
-                  >
-                    Select a Service *
-                  </label>
-
-                  <select
-                    id="service"
-                    name="service"
-                    className="form-select"
-                    value={formData.service}
-                    onChange={handleChange}
-                  >
-                    <option value="">
-                      Choose your service
-                    </option>
-
-                    {serviceCategories.map((category) => (
-
-                      <optgroup
-                        label={category.category}
-                        key={category.category}
-                      >
-
-                        {category.services.map((service) => (
-
-                          <option
-                            value={service.name}
-                            key={service.name}
-                          >
-                            {service.name} —{" "}
-                            {service.from ? "From " : ""}
-                            TZS{" "}
-                            {service.price.toLocaleString()}
-                          </option>
-
-                        ))}
-
-                      </optgroup>
-
-                    ))}
-
-                  </select>
-
-                  {errors.service && (
-                    <span className="booking-error">
-                      {errors.service}
-                    </span>
-                  )}
-
-                </div>
-
-
-                {selectedService && (
-
-                  <div className="selected-service-preview">
-
-                    <div>
-
-                      <span>
-                        Selected Service
-                      </span>
-
-                      <strong>
-                        {selectedService.name}
-                      </strong>
-
-                    </div>
-
-                    <div>
-
-                      <span>
-                        Duration
-                      </span>
-
-                      <strong>
-                        {selectedService.duration}
-                      </strong>
-
-                    </div>
-
-                    <div>
-
-                      <span>
-                        Price
-                      </span>
-
-                      <strong>
-                        {selectedService.from
-                          ? "From "
-                          : ""}
-                        TZS{" "}
-                        {selectedService.price.toLocaleString()}
-                      </strong>
-
-                    </div>
-
-                  </div>
-
-                )}
-
-              </div>
-
-
-              {/* DATE & TIME */}
-
-              <div className="booking-form-block">
-
-                <div className="booking-form-heading">
-
-                  <span className="booking-step">
-                    03
-                  </span>
-
-                  <div>
-                    <span className="section-label">
-                      Date & Time
-                    </span>
-
-                    <h2>
-                      When would you like to visit?
-                    </h2>
-                  </div>
-
-                </div>
-
-                <div className="booking-fields-grid">
-
-                  <div className="form-group">
-
-                    <label
-                      className="form-label"
-                      htmlFor="date"
-                    >
-                      Preferred Date *
-                    </label>
-
-                    <input
-                      id="date"
-                      name="date"
-                      type="date"
-                      min={today}
-                      className="form-input"
-                      value={formData.date}
-                      onChange={handleChange}
-                    />
-
-                    {errors.date && (
-                      <span className="booking-error">
-                        {errors.date}
-                      </span>
-                    )}
-
-                  </div>
-
-
-                  <div className="form-group">
-
-                    <label
-                      className="form-label"
-                      htmlFor="time"
-                    >
-                      Preferred Time *
-                    </label>
-
-                    <select
-                      id="time"
-                      name="time"
-                      className="form-select"
-                      value={formData.time}
-                      onChange={handleChange}
-                    >
-
-                      <option value="">
-                        Choose a time
-                      </option>
-
-                      <option value="8:00 AM">
-                        8:00 AM
-                      </option>
-
-                      <option value="9:00 AM">
-                        9:00 AM
-                      </option>
-
-                      <option value="10:00 AM">
-                        10:00 AM
-                      </option>
-
-                      <option value="11:00 AM">
-                        11:00 AM
-                      </option>
-
-                      <option value="12:00 PM">
-                        12:00 PM
-                      </option>
-
-                      <option value="1:00 PM">
-                        1:00 PM
-                      </option>
-
-                      <option value="2:00 PM">
-                        2:00 PM
-                      </option>
-
-                      <option value="3:00 PM">
-                        3:00 PM
-                      </option>
-
-                      <option value="4:00 PM">
-                        4:00 PM
-                      </option>
-
-                      <option value="5:00 PM">
-                        5:00 PM
-                      </option>
-
-                      <option value="6:00 PM">
-                        6:00 PM
-                      </option>
-
-                      <option value="7:00 PM">
-                        7:00 PM
-                      </option>
-
-                    </select>
-
-                    {errors.time && (
-                      <span className="booking-error">
-                        {errors.time}
-                      </span>
-                    )}
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* CLIENT TYPE */}
-
-              <div className="booking-form-block">
-
-                <div className="booking-form-heading">
-
-                  <span className="booking-step">
-                    04
-                  </span>
-
-                  <div>
-                    <span className="section-label">
-                      Your Visit
-                    </span>
-
-                    <h2>
-                      Is this your first visit?
-                    </h2>
-                  </div>
-
-                </div>
-
-                <div className="booking-choice-grid">
-
-                  <label
-                    className={
-                      formData.clientType === "First visit"
-                        ? "booking-choice selected"
-                        : "booking-choice"
-                    }
-                  >
-
-                    <input
-                      type="radio"
-                      name="clientType"
-                      value="First visit"
-                      checked={
-                        formData.clientType === "First visit"
-                      }
-                      onChange={handleChange}
-                    />
-
-                    <span>
-                      First Visit
-                    </span>
-
-                  </label>
-
-
-                  <label
-                    className={
-                      formData.clientType ===
-                      "Returning client"
-                        ? "booking-choice selected"
-                        : "booking-choice"
-                    }
-                  >
-
-                    <input
-                      type="radio"
-                      name="clientType"
-                      value="Returning client"
-                      checked={
-                        formData.clientType ===
-                        "Returning client"
-                      }
-                      onChange={handleChange}
-                    />
-
-                    <span>
-                      Returning Client
-                    </span>
-
-                  </label>
-
-                </div>
-
-                {errors.clientType && (
-                  <span className="booking-error">
-                    {errors.clientType}
-                  </span>
-                )}
-
-              </div>
-
-
-              {/* NOTES */}
-
-              <div className="booking-form-block">
-
-                <div className="booking-form-heading">
-
-                  <span className="booking-step">
-                    05
-                  </span>
-
-                  <div>
-                    <span className="section-label">
-                      Additional Details
-                    </span>
-
-                    <h2>
-                      Tell us about your visit.
-                    </h2>
-                  </div>
-
-                </div>
-
-                <div className="form-group">
-
-                  <label
-                    className="form-label"
-                    htmlFor="notes"
-                  >
-                    Additional Notes
-                  </label>
-
-                  <textarea
-                    id="notes"
-                    name="notes"
-                    className="form-textarea"
-                    value={formData.notes}
-                    onChange={handleChange}
-                    placeholder="Tell us anything you'd like our team to know..."
-                  />
-
-                </div>
-
-              </div>
-
-
-              {/* SUBMIT */}
-
-              <div className="booking-submit-area">
-
-                <p>
-                  By submitting this form, you are requesting
-                  an appointment. Our team will contact you
-                  to confirm availability.
-                </p>
-
-                <button
-                  type="submit"
-                  className="btn btn-gold booking-submit"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting
-                    ? "Sending Request..."
-                    : "Request Appointment"}
-                </button>
-
-              </div>
-
-            </form>
-
-
-            {/* SIDEBAR */}
-
-            <aside className="booking-sidebar">
-
-              <div className="booking-sidebar-image">
-
-                <img
-                  src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=85"
-                  alt="Empress Beauty salon"
-                />
-
-              </div>
-
-
-              <div className="booking-sidebar-content">
-
-                <span className="section-label">
-                  Empress Beauty
-                </span>
-
-                <h3>
-                  Your beauty
-                  <br />
-                  <em>moment.</em>
-                </h3>
-
-                <p>
-                  Visit us in Masaki, Dar es Salaam for
-                  thoughtful beauty experiences created around
-                  you.
-                </p>
-
-
-                <div className="booking-sidebar-detail">
-
-                  <span>
-                    Location
-                  </span>
-
-                  <p>
-                    Masaki
-                    <br />
-                    Dar es Salaam
-                    <br />
-                    Tanzania
-                  </p>
-
-                </div>
-
-
-                <div className="booking-sidebar-detail">
-
-                  <span>
-                    Opening Hours
-                  </span>
-
-                  <p>
-                    Monday – Saturday
-                    <br />
-                    8:00 AM – 8:00 PM
-                    <br />
-                    <br />
-                    Sunday
-                    <br />
-                    9:00 AM – 6:00 PM
-                  </p>
-
-                </div>
-
-
-                <div className="booking-sidebar-detail">
-
-                  <span>
-                    Contact
-                  </span>
-
-                  <a href="tel:+255741309031">
-                    +255 741 309 031
-                  </a>
-
-                  <a href="tel:+255651829411">
-                    +255 651 829 411
-                  </a>
-
-                  <a href="mailto:empress.beauty@gmail.com">
-                    empress.beauty@gmail.com
-                  </a>
-
-                </div>
-
-              </div>
-
-            </aside>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================
-          FINAL CTA
-      ========================================= */}
-
-      <section className="booking-final-cta">
-
-        <div className="container">
-
-          <div className="booking-final-cta-inner">
-
-            <span className="section-label">
-              Empress Beauty
-            </span>
-
-            <h2>
-              Come as you are.
-              <br />
-              <em>Leave feeling beautiful.</em>
-            </h2>
-
-            <Link
-              to="/contact"
-              className="btn btn-secondary"
-            >
-              Contact Us
-            </Link>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
-  );
 }
 
-export default Booking;
-
+export default Blog;
